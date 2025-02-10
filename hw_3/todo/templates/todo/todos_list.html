@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список задач</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .done {
+            text-decoration: line-through;
+            color: grey;
+        }
+        .emoji {
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>📌 Список задач</h2>
+        <ul>
+            {% for todo in todos %}
+                <li class="{% if todo.status %}done{% endif %}">
+                    <span class="emoji">{% if todo.status %}✅{% else %}🔹{% endif %}</span> 
+                    <strong>{{ todo.title }}</strong><br>
+                    {{ todo.description }} <br>
+                    <em>🗓 Дата выполнения: {{ todo.due_date }}</em>
+                </li>
+            {% empty %}
+                <p>Пока нет задач 😴</p>
+            {% endfor %}
+        </ul>
+        <a href="/todos/create/">➕ Добавить задачу</a>
+    </div>
+
+</body>
+</html>
