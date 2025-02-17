@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Список задач</h2>
+<ul>
+    {% for list in todo_lists %}
+        <li>
+            <a href="{% url 'todo_list_detail' list.id %}">{{ list.title }}</a> 
+            <a href="{% url 'delete_todo_list' list.id %}" class="btn btn-danger btn-sm">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Списков задач пока нет.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
