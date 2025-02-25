@@ -1,0 +1,11 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'posts_list' %}">CoShare</a>
+    <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'my_posts' %}">Мои посты</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Выход</a></li>
+        {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вход</a></li>
+        {% endif %}
+    </ul>
+</nav>
