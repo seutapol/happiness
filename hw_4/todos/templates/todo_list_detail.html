@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ todo_list.title }}</h2>
+<p>{{ todo_list.description }}</p>
+
+<h3>Задачи:</h3>
+<ul>
+    {% for todo in todos %}
+        <li>
+            {{ todo.title }} - {% if todo.status %}✅ Выполнено {% else %}❌ Не выполнено{% endif %}
+            <a href="{% url 'edit_todo' todo.id %}" class="btn btn-primary btn-sm">Редактировать</a>
+            <a href="{% url 'delete_todo' todo.id %}" class="btn btn-danger btn-sm">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Задач пока нет.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'todo_lists' %}" class="btn btn-secondary">Назад</a>
+{% endblock %}
