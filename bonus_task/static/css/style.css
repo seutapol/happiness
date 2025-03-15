@@ -1,0 +1,127 @@
+/* Общие стили */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f3e9dc; /* Нежный бежевый фон */
+    color: #5a3e36; /* Теплый коричневый цвет текста */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Контейнер страницы */
+.container {
+    width: 80%;
+    max-width: 800px;
+    background: #fff8f0; /* Светлый бежевый */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* Заголовки */
+h1, h2 {
+    color: #8d6e63; /* Глубокий кофейный цвет */
+    text-align: center;
+}
+
+/* Кнопки */
+.btn {
+    display: inline-block;
+    padding: 12px 18px;
+    margin: 10px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #c4a484; /* Темный бежевый */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #a67b5b; /* Темнее при наведении */
+}
+
+/* Форма */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #d1bfa7;
+    border-radius: 6px;
+    font-size: 16px;
+    background-color: #fdf6ec;
+    color: #5a3e36;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+/* Список заметок */
+.note-list {
+    list-style: none;
+    padding: 0;
+}
+
+.note-item {
+    background: #fff3e0;
+    border-left: 5px solid #c4a484;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-item a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #8d6e63;
+    transition: color 0.3s ease-in-out;
+}
+
+.note-item a:hover {
+    color: #a67b5b;
+}
+
+/* Кнопка удаления */
+.delete-btn {
+    background: #d32f2f;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+    background: #b71c1c;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+    }
+
+    input, textarea {
+        width: 90%;
+    }
+}

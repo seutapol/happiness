@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>📒 Мои заметки</h1>
+<a href="{% url 'note_create' %}" class="btn">➕ Добавить новую заметку</a>
+
+<ul class="note-list">
+    {% for note in notes %}
+        <li class="note-item">
+            <a href="{% url 'note_edit' note.pk %}">{{ note.title }}</a>
+            <form action="{% url 'note_delete' note.pk %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" class="delete-btn">🗑 Удалить</button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
